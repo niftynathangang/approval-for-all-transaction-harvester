@@ -15,7 +15,7 @@ namespace ApprovalTransactionCollector
             var web3 = new Web3(Environment.GetEnvironmentVariable("PROVIDER_URI"));
             ulong fromBlock = ulong.Parse(Environment.GetEnvironmentVariable("FROM_BLOCK"));
             ulong toBlock = ulong.Parse(Environment.GetEnvironmentVariable("TO_BLOCK"));
-            ulong blocksPerRequest = uint.Parse(Environment.GetEnvironmentVariable("BLOCK_PER_REQUEST") ?? "2000");
+            ulong blocksPerRequest = uint.Parse(Environment.GetEnvironmentVariable("BLOCKS_PER_REQUEST") ?? "2000");
             string operatorAddress = Environment.GetEnvironmentVariable("OPERATOR_ADDRESS");
             string inputFile = Environment.GetEnvironmentVariable("INPUT_FILE");
             string outputFile = Environment.GetEnvironmentVariable("OUTPUT_FILE");
@@ -24,7 +24,7 @@ namespace ApprovalTransactionCollector
             
             Dictionary<string, UserReimbursementSummary> approvalTransactionSummariesByUser = new Dictionary<string, UserReimbursementSummary>();
 
-            for (ulong startBlock = fromBlock; startBlock <= toBlock; startBlock += blocksPerRequest)
+            for (ulong startBlock = fromBlock; startBlock <= toBlock; startBlock += (blocksPerRequest + 1))
             {
                 ulong endBlock = startBlock + blocksPerRequest;
                 if(endBlock > toBlock)
