@@ -70,7 +70,7 @@ namespace ApprovalTransactionCollector
             List<ApprovalForAllTransactionSummary> approvalTransactionSummaries = new List<ApprovalForAllTransactionSummary>();
             foreach (var eventDTO in allApprovalForAllEventsForContract)
             {
-                if (contractsOfInterest.IsContractOfInterest(eventDTO.Log.Address))
+                if (contractsOfInterest.IsContractOfInterest(eventDTO.Log.Address) && eventDTO.Event.Approved)
                 {
                     var txReceipt = await web3.TransactionManager.TransactionReceiptService.PollForReceiptAsync(eventDTO.Log.TransactionHash);
                     var block = await web3.Eth.Blocks.GetBlockWithTransactionsByNumber.SendRequestAsync(new BlockParameter(txReceipt.BlockNumber));
