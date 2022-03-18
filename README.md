@@ -1,5 +1,7 @@
 # approval-for-all-transaction-harvester
 
+This tool is intended for use to gather all Approval For All ERC721 logs during a specified time period and summarizing the gas usage per user to perform those transactions.  The intent is to filter on specific token contracts, and a specific approved operator address.
+
 ## Building
 
 This project can be built without installing Visual Studio or the .Net 5 SDK using Docker.  Here are the instructions to build a Docker image with this application.
@@ -92,6 +94,7 @@ Environment variables must be specified to serve as arguments to the app running
     ]
   }
 }
+```
 
 ### Sample Docker Command
 
