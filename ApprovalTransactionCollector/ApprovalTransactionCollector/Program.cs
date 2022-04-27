@@ -79,14 +79,12 @@ namespace ApprovalTransactionCollector
 
             Console.WriteLine("Aggregating Results");
             await Task.Delay(1000);
-
-            //string json = JsonConvert.SerializeObject(approvalTransactionSummariesByUser, Formatting.Indented);
+            
             string csv = csvBuilder.ToString();
 
             Console.WriteLine($"Saving Results To {outputFile}");
             await Task.Delay(1000);
-
-            //File.WriteAllText(outputFile, json);
+            
             File.WriteAllText(outputFile, csv);
         }
 
