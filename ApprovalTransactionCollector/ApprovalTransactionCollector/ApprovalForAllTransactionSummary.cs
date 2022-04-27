@@ -12,10 +12,7 @@ namespace ApprovalTransactionCollector
         public bool Approved { get; set; }
         public BigInteger GasUsed { get; set; }
         public BigInteger GasPrice { get; set; }
-        public decimal GasFeeInEth { get; set; }
-        public BigInteger BlockNumber { get; set; }
-        public BigInteger BlockTimestamp { get; set; }
-        public DateTime UtcDateTime { get; set; }
+        public decimal GasFeeInEth { get; set; }        
 
         public ApprovalForAllTransactionSummary()
         {
